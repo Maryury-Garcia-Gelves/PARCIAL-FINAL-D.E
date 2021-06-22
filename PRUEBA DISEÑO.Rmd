@@ -32,7 +32,16 @@ confianza= 95%
 Alfa= 5% = 0,05%
 
 P value > alfa: no se rechaza la H0 (Normalidad)
+
 P value < alfa: se rechaza la H0 (No normalidad)
+
+```{r}
+library(MVN)
+mvn(datosm[2:7])
+```
+En el test  Mardia Skewness P value < alfa,se rechaza la H0,es decir no existe normalidad multivariante, en cambio en el test Mardia Kurtosis P value > alfa, no se rechaza H0, es decir existe normalidad multivariable. por tanto, MVN nos da un resultado de NO.
+
+
 
 
 
