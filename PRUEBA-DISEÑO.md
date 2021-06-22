@@ -1,33 +1,40 @@
-Untitled
+ANÁLISIS FACTORIAL
 ================
+Maryury Johana Garcia Gelves 1950186
 
-## GitHub Documents
+# **EXAMEN FINAL DE DISEÑO DE EXPERIMENTOS**
 
-This is an R Markdown format used for publishing markdown documents to
-GitHub. When you click the **Knit** button all R code chunks are run and
-a markdown file (.md) suitable for publishing to GitHub is generated.
+La siguiente base de datos fue una encuesta realizada a **30 jovenes de
+la Universidad Francisco de Paula Santarder** en la cual se les pregunta
+la edad y a que se dedican durante las 24 horas del día.
 
-## Including Code
-
-You can include R code in the document as follows:
+\#**Importar base de datos en formato Excel**
 
 ``` r
-summary(cars)
+library(readxl)
+datos<- read_excel("C:/Users/USUARIO/Documents/B.D.xlsx")
 ```
 
-    ##      speed           dist       
-    ##  Min.   : 4.0   Min.   :  2.00  
-    ##  1st Qu.:12.0   1st Qu.: 26.00  
-    ##  Median :15.0   Median : 36.00  
-    ##  Mean   :15.4   Mean   : 42.98  
-    ##  3rd Qu.:19.0   3rd Qu.: 56.00  
-    ##  Max.   :25.0   Max.   :120.00
+\#**Tipificación o estandarización de variables**
 
-## Including Plots
+La tipificación permite que todas las variables métricas gocen de una
+misma unidad de medida estadistica.
 
-You can also embed plots, for example:
+``` r
+datosm<- datos # nueva base de datos o data frame
+datosm<-scale(datosm,center = T, scale = T)
+datosm<- as.data.frame(datosm)
+```
 
-![](PRUEBA-DISEÑO_files/figure-gfm/pressure-1.png)<!-- -->
+\#**Normalidad Multivariante**
 
-Note that the `echo = FALSE` parameter was added to the code chunk to
-prevent printing of the R code that generated the plot.
+H0: Normalida Multivariante
+
+H1: No Normalidad Multivariante
+
+confianza= 95%
+
+Alfa= 5% = 0,05%
+
+P value &gt; alfa: no se rechaza la H0 (Normalidad) P value &lt; alfa:
+se rechaza la H0 (No normalidad)

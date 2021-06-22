@@ -1,30 +1,38 @@
 ---
-title: "Untitled"
+title: "ANÁLISIS FACTORIAL"
+author: "Maryury Johana Garcia Gelves 1950186"
 output: github_document
 ---
+# **EXAMEN FINAL DE DISEÑO DE EXPERIMENTOS**
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+La siguiente base de datos fue una encuesta realizada a **30 jovenes de la Universidad Francisco de Paula Santarder** en la cual se les pregunta la edad y a que se dedican durante las 24 horas del día.
+
+#**Importar base de datos en formato Excel**
+```{r}
+library(readxl)
+datos<- read_excel("C:/Users/USUARIO/Documents/B.D.xlsx")
+```
+#**Tipificación o estandarización de variables**
+
+La tipificación permite que todas las variables métricas gocen de una misma unidad de medida estadistica.
+```{r}
+datosm<- datos # nueva base de datos o data frame
+datosm<-scale(datosm,center = T, scale = T)
+datosm<- as.data.frame(datosm)
 ```
 
-## GitHub Documents
+#**Normalidad Multivariante**
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+H0: Normalida Multivariante
 
-## Including Code
+H1: No Normalidad Multivariante
 
-You can include R code in the document as follows:
+confianza= 95%
 
-```{r cars}
-summary(cars)
-```
+Alfa= 5% = 0,05%
 
-## Including Plots
+P value > alfa: no se rechaza la H0 (Normalidad)
+P value < alfa: se rechaza la H0 (No normalidad)
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
